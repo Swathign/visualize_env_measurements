@@ -36,7 +36,7 @@ const MeasurementsChart = () => {
 
   return (
     <div>
-      <HighchartsReact highcharts={Highcharts} options={options} />
+      <HighchartsReact highcharts={Highcharts}  options={options} />
     </div>
   );
 };
