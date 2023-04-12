@@ -8,6 +8,8 @@ In the project directory, you can run:
 
 ### `npm start`
 
+You can run the same in codesandbox https://codesandbox.io/s/great-lena-ysmg0l?file=/src/index.js
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
