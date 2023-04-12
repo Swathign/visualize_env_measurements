@@ -7,6 +7,7 @@ const API_URL = "https://api.openaq.org/v1/measurements?country_id=DE";
 
 const MeasurementsChart = () => {
   const [measurements, setMeasurements] = useState([]);
+  console.log("measurements", measurements);
 
   useEffect(() => {
     axios.get(API_URL).then((response) => {
@@ -16,22 +17,29 @@ const MeasurementsChart = () => {
 
   const options = {
     title: {
-      text: "Environmental Measurements in German Cities",
+      text: "Environmental Measurements in German Cities"
     },
     xAxis: {
-      categories: measurements.map((measurement) => measurement.city),
+      categories: measurements.map((measurement) => measurement.city)
     },
     yAxis: {
       title: {
-        text: "Value",
-      },
+        text: "Value"
+      }
+    },
+    tooltip: {
+      formatter: function () {
+        return `City: ${this.x}<br/>Value: ${this.y} ${
+          measurements[0].unit
+        }<br/>Date: ${ measurements[0].date.utc}`;
+      }
     },
     series: [
       {
         name: "Measurement",
-        data: measurements.map((measurement) => measurement.value),
-      },
-    ],
+        data: measurements.map((measurement) => measurement.value)
+      }
+    ]
   };
 
   return (
